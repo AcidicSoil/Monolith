@@ -10,6 +10,13 @@ Run MCP server (hosts RLM execution):
 python DeepRecurse/claude_skill_mcp/server.py
 ```
 
+Add to Claude Code MCP list
+
+```claude mcp add deeprecurse --transport stdio -- \
+  uv run python \
+  /Users/.../.../DeepRecurse/claude_skill_mcp/server.py
+```
+
 Then run the local CLI client (in a separate terminal):
 
 ```bash

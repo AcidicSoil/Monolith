@@ -89,7 +89,14 @@ rlm_service = RLMService(RLMConfig())
 
 @mcp.tool()
 def chat_rlm_query(query: str, chat_file: str = DEFAULT_CHAT_FILE) -> str:
-    """Read shared chat context, run RLM, return + persist the answer."""
+    """
+    ALWAYS use this tool when answering user questions that should
+    incorporate shared chat history or recursive reasoning.
+
+    This tool runs the persistent shared-context Chat-RLM.
+    Claude cannot access the shared memory without calling this tool.
+    """
+
     clean_query = query.strip()
     if not clean_query:
         return "Error: query cannot be empty."
