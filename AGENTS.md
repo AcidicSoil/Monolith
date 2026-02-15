@@ -1,8 +1,12 @@
+# Monocontext
+This is the repo for monocontext, a project using RLMs as a tool for coding agents. RLMs are an inference scaffold for language models that allow them to scale to millions of tokens input size almost for free. So instead of all devs having separate agent chat histories, why not just have a monocontext that they all share like an unstructured growing dev log. Then whenever necessary the coding agent can use the RLM as a tool call to pull useful context from the monocontext about what other devs have worked on or even from your own previous sessions.
+
 # Overall Rules and Background
-The purpose of this project is to use RLMs with modal. The idea is the RLM runs as a modal function and the sub agents run as sandboxes.
+The RLM is implemented with modal. The idea is the RLM runs as a modal function and the sub agents run as sandboxes.
 This project uses `uv` so please use uv for dependency management and running scripts.
 Please understand the philosphy behind RLM and how it works from this blogpost: https://alexzhang13.github.io/blog/2025/rlm/
 The basic RLM implementation is implemented in rlm/
+
 
 ## Problem Solving
 - Err on the side of minimal and simple solutions.
