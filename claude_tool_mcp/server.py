@@ -12,7 +12,7 @@ from mcp.server.fastmcp import FastMCP
 
 
 DEFAULT_MODEL = "gpt-5"
-DEFAULT_RECURSIVE_MODEL = "gpt-5-nano"
+DEFAULT_RECURSIVE_MODEL = "gpt-5.1-codex-mini"
 DEFAULT_CHAT_FILE = "chat.txt"
 DEFAULT_MAX_ITERATIONS = 10
 

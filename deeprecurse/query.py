@@ -18,7 +18,7 @@ def main() -> None:
     parser.add_argument("query", help="Natural-language question to ask.")
     parser.add_argument("--codebase", required=True, help="Codebase name.")
     parser.add_argument("--model", default="gpt-5", help="Root model.")
-    parser.add_argument("--recursive-model", default="gpt-5-nano", help="Sub-LLM model.")
+    parser.add_argument("--recursive-model", default="gpt-5.1-codex-mini", help="Sub-LLM model.")
     parser.add_argument("--max-iterations", type=int, default=10, help="Max RLM iterations.")
     args = parser.parse_args()
 

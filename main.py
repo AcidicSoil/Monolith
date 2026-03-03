@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 DEFAULT_MODEL = "gpt-5"
-DEFAULT_RECURSIVE_MODEL = "gpt-5-nano"
+DEFAULT_RECURSIVE_MODEL = "gpt-5.1-codex-mini"
 DEFAULT_CHAT_FILE = "chat.txt"
 EXIT_COMMANDS = {"exit", "quit", ":q"}
 
