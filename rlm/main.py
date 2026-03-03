@@ -75,7 +75,7 @@ def main():
             result = run_rlm_remote.remote(
                 query=query,
                 context_relpath=context_relpath,
-                model="gpt-5-mini",
+                model="gpt-5-codex-mini",
                 recursive_model="gpt-5.1-codex-mini",
                 max_iterations=10,
             )

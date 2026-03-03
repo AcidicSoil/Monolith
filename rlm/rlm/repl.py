@@ -159,7 +159,7 @@ class REPLResult:
 class REPLEnv:
     def __init__(
         self,
-        recursive_model: str = "gpt-5-mini",
+        recursive_model: str = "gpt-5-codex-mini",
         context_json: Optional[dict | list] = None,
         context_str: Optional[str] = None,
         context_path: Optional[str] = None,
