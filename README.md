@@ -4,7 +4,7 @@
 
 **RLM-as-a-service: persistent, recursive reasoning for AI coding agents.**
 
-Built on top of [alexzhang13/rlm](https://github.com/alexzhang13/rlm) — the open-source [Recursive Language Model](https://arxiv.org/abs/2512.24601v1) framework where LLMs offload context into a REPL environment and recursively call sub-LLMs to decompose complex tasks. On benchmarks like OOLONG (132k tokens), RLM(GPT-5-mini) outperforms GPT-5 by over 34 points at similar cost.
+Built on top of [alexzhang13/rlm](https://github.com/alexzhang13/rlm) — the open-source [Recursive Language Model](https://arxiv.org/abs/2512.24601v1) framework where LLMs offload context into a REPL environment and recursively call sub-LLMs to decompose complex tasks. On benchmarks like OOLONG (132k tokens), RLM(GPT-5.1-codex-mini) outperforms GPT-5 by over 34 points at similar cost.
 
 Monolith takes the core RLM and turns it into **deployed infrastructure** that AI agents can call as a tool. We wrap the RLM in an [MCP](https://modelcontextprotocol.io) server, deploy the compute on [Modal](https://modal.com) serverless, and add a persistent memory layer (Modal Volume) so the RLM accumulates context across sessions. The result: plug it into Claude Code and the agent gains the ability to recursively reason over arbitrarily large contexts — and remember what it learned.
 
@@ -38,7 +38,7 @@ MCP Server                              ← thin routing layer
   │     ├─ runs RLM_REPL reasoning loop:
   │     │    root LLM (gpt-5) ──writes code──▶ sandboxed REPL
   │     │                                        │
-  │     │    REPL calls llm_query() ────────▶ sub-LLM (gpt-5-nano)
+  │     │    REPL calls llm_query() ────────▶ sub-LLM (gpt-5.1-codex-mini)
   │     │                                        │
   │     │    results flow back to root LLM ◀─────┘
   │     │    ... repeat up to N iterations
@@ -60,7 +60,7 @@ The RLM never sees the full context directly. Instead it interacts with it progr
 2. **Filter + Analyze** — writes Python code to split the context along those boundaries, uses regex/keywords to find relevant sections, then calls `llm_query()` to delegate semantic analysis of each section to a sub-LLM
 3. **Aggregate + Answer** — synthesizes sub-LLM results via a final `llm_query()` call and returns the answer
 
-The root LLM uses a powerful model (gpt-5) for orchestration while sub-LLMs use cheaper models (gpt-5-nano) for focused analysis — keeping cost low while handling arbitrarily large contexts.
+The root LLM uses a powerful model (gpt-5) for orchestration while sub-LLMs use cheaper models (gpt-5.1-codex-mini) for focused analysis — keeping cost low while handling arbitrarily large contexts.
 
 ## Quick Start
 

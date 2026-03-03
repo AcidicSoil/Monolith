@@ -44,3 +44,9 @@ def test_expected_replacements_present() -> None:
         assert expected in content, (
             f"Expected model '{expected}' not found in {rel_path}"
         )
+
+
+def test_readme_has_no_deprecated_model_names() -> None:
+    content = _read_file("README.md")
+    assert "gpt-5-nano" not in content
+    assert "gpt-5-mini" not in content
