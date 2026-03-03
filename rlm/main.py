@@ -76,7 +76,7 @@ def main():
                 query=query,
                 context_relpath=context_relpath,
                 model="gpt-5-mini",
-                recursive_model="gpt-5-nano",
+                recursive_model="gpt-5.1-codex-mini",
                 max_iterations=10,
             )
     print(f"Result: {result}. Expected: {answer}")

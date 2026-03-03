@@ -34,7 +34,7 @@ def run_rlm_remote(
     query: str,
     context_relpath: str,
     model: str = "gpt-5",
-    recursive_model: str = "gpt-5-nano",
+    recursive_model: str = "gpt-5.1-codex-mini",
     max_iterations: int = 10,
 ) -> str:
     """Run RLM_REPL on Modal with context read from a mounted volume file."""
